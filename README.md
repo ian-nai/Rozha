@@ -7,7 +7,11 @@ A package to simplify and streamline a number of natural language processing pro
 
 
 ## Installation
-To install, download the GitHub repo and the install the requirements:
+To install, use pip:
+```
+pip3 install rozha==0.0.1
+```
+Or download the GitHub repo and the install the requirements:
 ```
 pip3 install -r requirements.txt
 ```
