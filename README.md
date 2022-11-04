@@ -18,7 +18,7 @@ from analyze import analyze
 from visualize import visualize
 ```
 ##  Full Documentation
-A full list of the package's functions can be viewed at this link.
+A full list of the package's functions can be viewed [at this link](Functions.md).
 
 ## Example Pipelines
 Some example pipelines for working with the package are as follows:
