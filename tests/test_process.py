@@ -1,5 +1,5 @@
 import unittest
-from src.process import process
+from rozha.process import process
 from pathlib import Path
 
 
