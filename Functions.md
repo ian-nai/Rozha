@@ -252,12 +252,22 @@ Use spaCy to perform named entity recognition for each element in a passed list.
 ```
 sentimentBlob(var)
 ```
-Perform sentiment analysis on either a list or a string using TextBlob. Returns a list of tuples (the text and its sentiment score) called ```analyze.sentiment```.
+Perform sentiment analysis on either a list or a string using TextBlob. Returns a list of tuples (the text and its sentiment score) called ```analyze.blob_sentiment```.
 
 ```
 sentimentBlobFile(file)
 ```
-Perform sentiment analysis on a file using TextBlob. Returns a list of tuples (sentences and their sentiment score) called ```analyze.sentiment```.
+Perform sentiment analysis on a file using TextBlob. Returns a list of tuples (sentences and their sentiment score) called ```analyze.blob_sentiment```.
+
+```
+sentimentBlobTrain(var, training_file, file_format)
+```
+Train a Naive Bayes sentiment classifier and then apply it to a string or list. The var supplied is the string or list to analyze, the training file is the list of pre-tagged sentences, and the file format specifies the extension of the file. JSON, CSV, and TSV files are accepted for the training data. Outputs a list of tuples with the original text and its sentiment score called ```analyze.blob_sentiment```.
+
+```
+sentimentBlobTrainFile(var, training_file, file_format)
+```
+Train a Naive Bayes sentiment classifier and then apply it to a file. The var supplied is the file to analyze, the training file is the list of pre-tagged sentences, and the file format specifies the extension of the file. Text files are accepted for the file to analyze, and JSON, CSV, and TSV files are accepted for the training data. Outputs a list of tuples with the original text and its sentiment score called ```analyze.blob_sentiment```.
 
 ```
 sentimentVader(var)
