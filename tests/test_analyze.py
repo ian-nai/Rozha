@@ -1,9 +1,10 @@
 import unittest
-from src.analyze import analyze
+from rozha.analyze import analyze
 
 
 class TestClient(unittest.TestCase):
     file = 'tests/file.txt'
+    training_file = 'tests/training_test.csv'
     var = 'This is a test sentence. This is the second test.'
     dir = 'tests'
     var_list = ['This is a test sentence', ' This is the second test.']
@@ -40,6 +41,14 @@ class TestClient(unittest.TestCase):
     def test_sentimentBlobFile(self):
         analyze.sentimentBlobFile(TestClient.file)
         assert str(analyze.blob_sentiment[0]) == "('This is a test sentence.', Sentiment(polarity=0.0, subjectivity=0.0))"
+
+    def test_sentimentBlobTrain(self):
+        analyze.sentimentBlobTrain(TestClient.var_list, TestClient.training_file, 'csv')
+        assert analyze.blob_sentiment[0] == ('This is a test sentence', 'pos')
+
+    def test_sentimentBlobTrainFile(self):
+        analyze.sentimentBlobTrainFile(TestClient.file, TestClient.training_file, 'csv')
+        assert analyze.blob_sentiment[0] == ('This is a test sentence.', 'pos')
 
     def test_sentimentVaderFile(self):
         analyze.sentimentVaderFile(TestClient.file)
