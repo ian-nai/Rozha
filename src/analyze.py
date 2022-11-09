@@ -8,7 +8,7 @@ import csv
 import spacy
 import codecs
 
-from src.process import process
+from rozha.process import process
 
 class analyze:
     '''The analyze class contains methods for performing various analysis methodologies using the NLTK, spaCy, and Stanza NLP packages.'''
@@ -164,6 +164,52 @@ class analyze:
                 q = TextBlob(sen)
                 sen_tup = (sen, q.sentiment)
                 sentiment_list.append(sen_tup)
+            f.close()
+
+        analyze.blob_sentiment = sentiment_list
+        return(analyze.blob_sentiment)
+
+    def sentimentBlobTrain(var, training_file, file_format):
+        from textblob import TextBlob
+        from textblob.classifiers import NaiveBayesClassifier
+
+        sentiment_list = []
+        train = []
+
+        with open(training_file, 'r') as fp:
+            cl = NaiveBayesClassifier(fp, format=file_format)
+
+        if type(var) is list:
+            for s in var:
+                classified = cl.classify(s)
+                sen_tup = (s, classified)
+                sentiment_list.append(sen_tup)
+        elif type(var) is str:
+            sents = nltk.sent_tokenize(s)
+            for sen in sents:
+                classified = cl.classify(s)
+                sen_tup = (sen, classified)
+                sentiment_list.append(sen_tup)
+
+        analyze.blob_sentiment = sentiment_list
+        return(analyze.blob_sentiment)
+
+    def sentimentBlobTrainFile(file, training_file, file_format):
+        from textblob import TextBlob
+        from textblob.classifiers import NaiveBayesClassifier
+        sentiment_list = []
+
+        with open(training_file, 'r') as fp:
+            cl = NaiveBayesClassifier(fp, format=file_format)
+
+        with codecs.open(file, 'r', encoding='utf-8') as f:
+            text = f.read()
+            sents = nltk.sent_tokenize(text)
+            for sen in sents:
+                classified = cl.classify(sen)
+                sen_tup = (sen, classified)
+                sentiment_list.append(sen_tup)
+
             f.close()
 
         analyze.blob_sentiment = sentiment_list
