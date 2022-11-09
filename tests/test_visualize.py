@@ -1,5 +1,5 @@
 import unittest
-from src.visualize import visualize
+from rozha.visualize import visualize
 
 
 class TestClient(unittest.TestCase):
