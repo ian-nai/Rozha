@@ -4,12 +4,13 @@ A package to simplify and streamline a number of natural language processing pro
 <p align="center">
 <img src="https://raw.githubusercontent.com/ian-nai/Rozha/main/rozha_logo.png">
 </p>
+Rozha is named after Rozhanitsa, a goddess from Slavic mythology.
 
 
 ## Installation
-To install, use pip:
+Install using pip:
 ```
-pip3 install rozha==0.0.1
+pip3 install rozha
 ```
 Or download the GitHub repo and the install the requirements:
 ```
