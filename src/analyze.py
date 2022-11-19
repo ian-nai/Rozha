@@ -22,6 +22,7 @@ class analyze:
     stanza_dependency = []
     vader_sentiment = []
     blob_sentiment = []
+    detect_lang = []
 
     def posString(var):
         pos_tags = []
@@ -315,3 +316,36 @@ class analyze:
 
         analyze.stanza_dependency = dependency_list
         return(analyze.stanza_dependency)
+
+    def detectLangVar(var):
+        from stanza.models.common.doc import Document
+        from stanza.pipeline.core import Pipeline
+
+        lang_words = []
+        nlp = Pipeline(lang="multilingual", processors="langid")
+        var = [Document([], text=text) for text in var]
+        nlp(var)
+        for doc in var:
+            lang_words.append((doc.text, doc.lang))
+
+        analyze.detect_lang = lang_words
+        return(analyze.detect_lang)
+
+    def detectLangVarLists(var):
+        from stanza.models.common.doc import Document
+        from stanza.pipeline.core import Pipeline
+
+        lang_words = []
+        nlp = Pipeline(lang="multilingual", processors="langid")
+
+        for x in var:
+            temp_list = []
+            var = [Document([], text=text) for text in x]
+            nlp(var)
+            for doc in var:
+                temp_list.append((doc.text, doc.lang))
+            lang_words.append(temp_list)
+
+
+        analyze.detect_lang = lang_words
+        return(analyze.detect_lang)
