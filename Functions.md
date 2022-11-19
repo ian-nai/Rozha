@@ -206,94 +206,6 @@ saveCsv_multi(filename, *args)
 ```
 Saved the passed variables to a .csv file with the passed filename. Accepts multiple lists.
 
-
-## Analyze
-```
-posString(var)
-```
-Use NLTK to tag the parts of speech in a string. Returns a list of the words and their tags. Returns a list called ```analyze.pos_tags```.
-
-```
-posList(var)
-```
-Use NLTK to tag the parts of speech in the elements of a list. Returns tuples containing the words and POS tags for each list element in a list called ```analyze.pos_tags```.
-
-```
-posListSents(var)
-```
-Use NLTK to word tokenize and tag the parts of speech in the elements of a list. Returns a list of lists, with each list containing the POS tags for its respective words, called ```analyze.pos_tags```.
-
-
-```
-spacyPos(var, lang)
-```
-Use spaCy to tag the parts of speech in the elements of a list. Returns a list of lists, with each list containing the POS tags for its respective element. Returns a list called ```analyze.spacy_pos_tags```.
-
-```
-stanzaPos(var, lang)
-```
-Use Stanza to tag the parts of speech in the elements of a list. Returns a list of lists, with each list containing the POS tags for its respective element. Returns a list called ```analyze.stanza_pos_tags```.
-
-```
-nerTree(var)
-```
-Use NLTK to create a named entity recognition tree for each element in a passed list. Returns a list called ```analyze.ner_tree```.
-
-```
-spacyNer(var, lang)
-```
-Use spaCy to perform named entity recognition for each element in a passed list. Returns a list of named entities called ```analyze.spacy_ner_tags```.
-
-```
-stanzaNer(var, lang)
-```
-Use spaCy to perform named entity recognition for each element in a passed list. Returns a list of named entities called ```analyze.spacy_ner_tags```.
-
-```
-sentimentBlob(var)
-```
-Perform sentiment analysis on either a list or a string using TextBlob. Returns a list of tuples (the text and its sentiment score) called ```analyze.blob_sentiment```.
-
-```
-sentimentBlobFile(file)
-```
-Perform sentiment analysis on a file using TextBlob. Returns a list of tuples (sentences and their sentiment score) called ```analyze.blob_sentiment```.
-
-```
-sentimentBlobTrain(var, training_file, file_format)
-```
-Train a Naive Bayes sentiment classifier and then apply it to a string or list. The var supplied is the string or list to analyze, the training file is the list of pre-tagged sentences, and the file format specifies the extension of the file. JSON, CSV, and TSV files are accepted for the training data. Outputs a list of tuples with the original text and its sentiment score called ```analyze.blob_sentiment```.
-
-```
-sentimentBlobTrainFile(var, training_file, file_format)
-```
-Train a Naive Bayes sentiment classifier and then apply it to a file. The var supplied is the file to analyze, the training file is the list of pre-tagged sentences, and the file format specifies the extension of the file. Text files are accepted for the file to analyze, and JSON, CSV, and TSV files are accepted for the training data. Outputs a list of tuples with the original text and its sentiment score called ```analyze.blob_sentiment```.
-
-```
-sentimentVader(var)
-```
-Perform sentiment analysis on either a list or a string using Vader. Returns a list of tuples (the text and its sentiment score) called ```analyze.vader_sentiment```.
-
-```
-sentimentVaderFile(file)
-```
-Perform sentiment analysis on a file using Vader. Returns a list of tuples (sentences and their sentiment score) called ```analyze.vader_sentiment```.
-
-```
-stanzaSentiment(var, lang)
-```
-Perform sentiment analysis on either a list or a string using Stanza. Returns a list of tuples (the text and its sentiment score) called ```analyze.stanza_sentiment```.
-
-```
-stanzaDependency(var, lang)
-```
-Create a dependency tree from a list using Stanza. Returns a list of the trees generated called ```analyze.dependency```.
-
-```
-stanzaDependencyFile(file, lang)
-```
-Create a dependency tree from a file using Stanza. Returns a list of the trees generated called ```analyze.dependency```.
-
 ## Analyze
 ```
 posString(var)
@@ -364,6 +276,16 @@ Create a dependency tree from a list using Stanza. Returns a list of the trees g
 stanzaDependencyFile(file, lang)
 ```
 Create a dependency tree from a file using Stanza. Returns a list of the trees generated called ```analyze.dependency```.
+
+```
+detectLangVar(var)
+```
+Uses Stanza to detect the languages present in a list of strings. Outputs a list of tuples containing the original text and the predicted language for each string called ```analyze.detect_lang```.
+```
+detectLangVarLists(var)
+```
+Uses Stanza to detect the languages present in a list of lists. Outputs a list of tuples containing the original text and the predicted language for each string, retaining the original structure of the list of lists. The output is called ```analyze.detect_lang```.
+
 
 ## Visualize
 ```
