@@ -86,5 +86,13 @@ class TestClient(unittest.TestCase):
         analyze.stanzaDependencyFile(TestClient.file, 'en')
         assert str(analyze.stanza_dependency[0]) == "['id: 1, word: This, head id: 5, head: sentence, deprel: nsubj', 'id: 2, word: is, head id: 5, head: sentence, deprel: cop', 'id: 3, word: a, head id: 5, head: sentence, deprel: det', 'id: 4, word: test, head id: 5, head: sentence, deprel: compound', 'id: 5, word: sentence, head id: 0, head: root, deprel: root', 'id: 6, word: ., head id: 5, head: sentence, deprel: punct']"
 
+    def test_detectLangVar(self):
+        analyze.detectLangVar(['this is a test.', "c'est un test."])
+        assert analyze.detect_lang[0] == ('this is a test.', 'en')
+
+    def test_detectLangVarLists(self):
+        analyze.detectLangVarLists([['this', 'is', 'a', 'test'], ["c'est", 'un', 'test']])
+        assert analyze.detect_lang[0] == [('this', 'en'), ('is', 'en'), ('a', 'ga'), ('test', 'la')]
+
 if __name__ == '__main__':
     unittest.main()
