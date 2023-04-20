@@ -1,13 +1,13 @@
 
 # Rozha
-A package to simplify and streamline a number of natural language processing processes and methods for a wide variety of languages, empowering users to use NLP on both non-English and English texts.
+A package to simplify and streamline a number of natural language processing processes and methods for a wide variety of languages, empowering users to use NLP on both non-English and English texts.      
+     
+[![DOI](https://zenodo.org/badge/540110404.svg)](https://zenodo.org/badge/latestdoi/540110404)
+
 <p align="center">
 <img src="https://raw.githubusercontent.com/ian-nai/Rozha/main/rozha_logo.png">
 </p>
 Rozha is named after Rozhanitsa, a goddess from Slavic mythology.  
-
-[![DOI](https://zenodo.org/badge/540110404.svg)](https://zenodo.org/badge/latestdoi/540110404)
-
 
 ## Installation
 Install using pip:
