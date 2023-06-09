@@ -54,12 +54,13 @@ ner_tags = analyze.spacyNer(sent_tokenized, 'en')
 print(ner_tags)
 ```
 
-Perform word tokenization and remove stopwords from a string, make the text lowercase, and graph the 10 most common words as a bar graph:
+Remove stopwords from a string, make the text lowercase, and graph the 10 most common words as a bar graph:
 ```
 import rozha.process as process
 import rozha.visualize as visualize
 
-word_tokenized = process.lowerVar(text)
+no_stopwords = str(process.stopwordsVar(our_text, "english"))
+word_tokenized = process.lowerVar(no_stopwords)
 # pass the var, number of words to graph, the height and width of the graph, and your preferred filename
 visualize.barFreq(word_tokenized, 10, 400, 400, 'my_graph')
 ```
