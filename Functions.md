@@ -223,9 +223,14 @@ spacyPos(var, lang)
 Use spaCy to tag the parts of speech in the elements of a list. Returns a list of lists, with each list containing the POS tags for its respective element. Returns a list called ```analyze.spacy_pos_tags```.
 
 ```
-stanzaPos(var, lang)
+stanzaPosVar(var, lang)
 ```
 Use Stanza to tag the parts of speech in the elements of a list. Returns a list of lists, with each list containing the POS tags for its respective element. Returns a list called ```analyze.stanza_pos_tags```.
+
+```
+stanzaPosFile(file, lang)
+```
+Use Stanza to tag the parts of speech in the elements of a file. Returns a list of lists, with each list containing the POS tags for its respective element. Returns a list called ```analyze.stanza_pos_tags```.
 
 ```
 nerTree(var)
