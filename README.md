@@ -68,4 +68,4 @@ visualize.barFreq(word_tokenized, 10, 400, 400, 'my_graph')
 ## Contributing
 Contributions are welcome! The following features are of particular interest:
 * Increasing the number of methods in the analyze class
-* Increasing the number of methods in the visualization class
+* Increasing the number of methods in the visualize class
