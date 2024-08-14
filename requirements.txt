@@ -1,5 +1,5 @@
 matplotlib == 3.5.2
-nltk == 3.6.5
+nltk == 3.8.2
 spacy == 3.4.2
 stanza == 1.4.2
 textblob == 0.17.1
